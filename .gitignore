@@ -15,7 +15,9 @@ wp-content/plugins/*
 !wp-content/plugins/custom-plugin-folder/
 
 # WordPress themes (except custom ones)
-wp-content/themes/*
+wp-content/themes/twentytwentyfive
+wp-content/themes/twentytwentyfour
+wp-content/themes/twentytwentythree
 !wp-content/themes/custom-theme-folder/
 
 # Database backups
