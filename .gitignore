@@ -1,0 +1,45 @@
+# WordPress core
+wordpress/
+wp-admin/
+wp-includes/
+
+# Environment files
+.env
+.env.local
+
+# WordPress uploads
+wp-content/uploads/
+
+# WordPress plugins (except custom ones)
+wp-content/plugins/*
+!wp-content/plugins/custom-plugin-folder/
+
+# WordPress themes (except custom ones)
+wp-content/themes/*
+!wp-content/themes/custom-theme-folder/
+
+# Database backups
+*.sql
+*.sql.gz
+*.db
+
+# Logs and debug files
+debug.log
+wp-content/debug.log
+
+# OS and Editor files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*.bak
+*.tmp
+
+# Composer and npm
+vendor/
+node_modules/
+
+# IDE and editor settings
+.vscode/
+.idea/
+*.code-workspace
