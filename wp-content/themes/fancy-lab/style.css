@@ -1,7 +1,515 @@
-/* 
-Theme Name: Fancy Lab 
+/*  
+Theme Name: Fancy Lab
+Author: Vinh Pham
+Author URI: https://vinhpham.com
+Description: 
+Version: 1.0
 */
 
-.top-bar {
-  background: gray;
+@font-face {
+  font-family: 'Rajdhani';
+  src: url('fonts/rajdhani/Rajdhani-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Rajdhani';
+  src: url('fonts/rajdhani/Rajdhani-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Rajdhani';
+  src: url('fonts/rajdhani/Rajdhani-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Rajdhani';
+  src: url('fonts/rajdhani/Rajdhani-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Seaweed Script';
+  src: url('fonts/seaweed/SeaweedScript-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 400;
+}
+
+/* Header - Main Menu */
+.main-menu {
+  padding: 0;
+}
+
+.main-menu ul {
+  padding: 0;
+  margin: 0;
+  font-size: 18px;
+  font-weight: 500;
+  border-radius: 0;
+}
+
+.main-menu ul li {
+  display: inline;
+  margin: 0 5px 0 0;
+  position: relative;
+}
+
+.main-menu ul li:last-child {
+  margin: 0;
+}
+
+.main-menu ul li a {
+  display: inline-block;
+  padding: 10px 15px;
+  text-decoration: none;
+  color: #333;
+}
+
+.main-menu ul li:hover>a {
+  color: #CA2424;
+}
+
+/* Dropdown menu */
+.main-menu ul ul {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #fff;
+  min-width: 200px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 999;
+}
+
+.main-menu ul ul li {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+.main-menu ul ul li a {
+  padding: 10px 15px;
+  display: block;
+  border-bottom: 1px solid #eee;
+}
+
+.main-menu ul li:hover>ul {
+  display: block;
+}
+
+.main-menu .dropdown-toggle::after {
+  display: inline-block;
+  margin-left: 5px;
+  content: "▼";
+  font-size: 10px;
+}
+
+.main-menu .dropdown:hover>.dropdown-menu,
+.main-menu .dropup:hover>.dropdown-menu {
+  display: block;
+}
+
+.navbar-toggler .navbar-toggler-icon {
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  background-image: url('img/hambuger-menu.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+@media (min-width: 768px) {
+  .navbar-toggler {
+    display: none;
+  }
+}
+
+/* Search form */
+.search-form button {
+  background-image: url('img/search.svg');
+  height: 23px;
+  width: 23px;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  border: none;
+}
+
+.search-form input[type="search"] {
+  background-color: #fff;
+  border: none;
+  font-weight: 500;
+  font-size: 110%;
+  padding: 0.3rem 1rem;
+  margin-right: 0.3rem;
+}
+
+/* Cart */
+.cart .cart-icon {
+  background-image: url('img/cart.svg');
+  background-repeat: no-repeat;
+  height: 25px;
+  width: 25px;
+  display: inline-block;
+  vertical-align: bottom;
+}
+
+.cart .items {
+  background: #CA2424;
+  color: white;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: inline-block;
+  text-align: center;
+}
+
+/* Footer - footer-menu */
+.footer-menu ul,
+.footer-widgets ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 16px;
+}
+
+.footer-menu ul li {
+  display: inline;
+  margin: 0 10px 0 0;
+}
+
+.footer-menu ul li:last-child {
+  margin: 0;
+}
+
+.footer-menu ul li a {
+  color: #939393;
+  text-decoration: none;
+}
+
+.footer-menu ul li.current-menu-item a {
+  color: #ff9292;
+}
+
+/* WooCommerce */
+
+/* Grid System */
+.woocommerce .col2-set .col-1,
+.woocommerce .col2-set .col-2 {
+  flex: 0 0 50%;
+  max-width: 50%;
+}
+
+@media all and (max-width: 767px) {
+
+  .woocommerce .col2-set .col-1,
+  .woocommerce .col2-set .col-2 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+
+.woocommerce nav.woocommerce-pagination ul li a:focus,
+.woocommerce nav.woocommerce-pagination ul li a:hover {
+  background: #941f94;
+  color: #ffffff !important;
+}
+
+.woocommerce div.product .woocommerce-tabs ul.tabs li {
+  border-radius: 0;
+  margin: 0;
+}
+
+.woocommerce div.product .woocommerce-tabs ul.tabs li::after,
+.woocommerce div.product .woocommerce-tabs ul.tabs li::before {
+  content: none;
+}
+
+.woocommerce #respond input#submit,
+.woocommerce a.button,
+.woocommerce button.button,
+.woocommerce input.button {
+  background-color: #ffeb8a;
+}
+
+.woocommerce #respond input#submit:hover,
+.woocommerce a.button:hover,
+.woocommerce button.button:hover,
+.woocommerce input.button:hover {
+  background-color: #ffe252;
+}
+
+/* Định nghĩa cho class container */
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+
+
+.float-left {
+  float: left !important;
+}
+
+
+.brand {
+  /* background: green; */
+}
+
+
+.align-items-center {
+  align-items: center !important;
+}
+
+.col {
+  flex: 1 0 0%;
+}
+
+
+.text-center {
+  text-align: center !important;
+}
+
+.ml-auto {
+  margin-left: auto !important;
+}
+
+.navbar {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+}
+
+.col-12 {
+  flex: 0 0 100%;
+  max-width: 100%;
+}
+
+.col-6 {
+  flex: 0 0 50%;
+  max-width: 50%;
+}
+
+
+.col-9 {
+  flex: 0 0 auto;
+  width: 75%;
+}
+
+
+
+.col-3 {
+  flex: 0 0 auto;
+  width: 25%;
+}
+
+
+.col-4 {
+  flex: 0 0 33.333333%;
+  max-width: 33.333333%;
+}
+
+.text-left {
+  text-align: left !important;
+}
+
+.col-8 {
+  flex: 0 0 auto;
+  width: 66.66666667%;
+}
+
+
+.order-2 {
+  order: 2;
+}
+
+
+.text-right {
+  text-align: right !important;
+}
+
+
+
+.bg-light {
+  background-color: #f8f9fa !important;
+}
+
+
+.navbar-expand {
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+}
+
+
+.navbar-nav {
+  display: flex;
+  flex-direction: row;
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+
+
+
+
+/* Định nghĩa cho các breakpoint */
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+}
+
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .order-md-1 {
+    order: 1;
+  }
+
+  .col-md-8 {
+    flex: 0 0 auto;
+    width: 66.66666667%;
+  }
+
+
+  .text-md-right {
+    text-align: right;
+  }
+
+  .col-md-3 {
+    flex: 0 0 auto;
+    width: 25%;
+  }
+
+  .text-md-left {
+    text-align: left !important;
+  }
+
+  .col-md-9 {
+    flex: 0 0 auto;
+    width: 75%;
+  }
+
+  .d-md-flex {
+    display: flex !important;
+  }
+}
+
+
+@media (min-width: 992px) {
+
+  .col-lg-10 {
+    flex: 0 0 auto;
+    width: 83.33333333%;
+  }
+
+  .col-lg-3 {
+    flex: 0 0 auto;
+    width: 25%;
+  }
+
+  .col-lg-9 {
+    flex: 0 0 auto;
+    width: 75%;
+  }
+
+  .col-lg-2 {
+    flex: 0 0 auto;
+    width: 16.66666667%;
+  }
+
+}
+
+/* Cart */
+.woocommerce-cart table.cart td.actions .coupon .input-text {
+  width: 150px;
+}
+
+/*Checkout */
+.woocommerce form .form-row {
+  display: block;
+}
+
+.woocommerce-checkout #customer_details {
+  margin-bottom: 20px;
+}
+
+.woocommerce table.shop_table {
+  border-collapse: collapse;
+}
+
+.woocommerce table.shop_table thead {
+  background-color: #d2335b;
+  color: #fff;
+}
+
+/* General */
+.size-auto,
+.size-full,
+.size-large,
+.size-medium,
+.size-thumbnail {
+  max-width: 100%;
+  height: auto;
+}
+
+/* .size-auto */
+
+/* Shop */
+
+.shop-content {
+  padding: 3rem 0;
+}
+
+.shop-content .row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.post-type-archive-product .content-area,
+.product-template-default .content-area .tax-product_cat .content-area {
+  padding: 0;
+}
+
+.woocommerce .woocommerce-breadcrumb a {
+  font-weight: 700;
+}
+
+.woocommerce ul.products.columns-1 li.product:first-child,
+.woocommerce-page ul.products.columns-1 li.product:first-child {
+  margin-top: 20px;
+}
+
+.navbar-toggler .navbar-toggler-icon {
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  background-image: url('img/hambuger-menu.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
