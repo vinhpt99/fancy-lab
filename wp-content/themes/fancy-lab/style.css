@@ -41,9 +41,13 @@ Version: 1.0
   font-style: normal;
 }
 
+/* Home Template */
+.home .woocommerce-loop-product__title+p {
+  display: none;
+}
+
 body {
   font-family: 'Rajdhani', sans-serif;
-  font-weight: 400;
 }
 
 /* Header - Main Menu */
@@ -62,11 +66,15 @@ body {
 .main-menu ul li {
   display: inline;
   margin: 0 5px 0 0;
-  position: relative;
 }
 
 .main-menu ul li:last-child {
   margin: 0;
+}
+
+.main-menu .dropdown:hover>.dropdown-menu,
+.main-menu .dropup:hover>.dropdown-menu {
+  display: block;
 }
 
 .main-menu ul li a {
@@ -113,11 +121,6 @@ body {
   margin-left: 5px;
   content: "▼";
   font-size: 10px;
-}
-
-.main-menu .dropdown:hover>.dropdown-menu,
-.main-menu .dropup:hover>.dropdown-menu {
-  display: block;
 }
 
 .navbar-toggler .navbar-toggler-icon {
@@ -343,6 +346,10 @@ body {
   width: 66.66666667%;
 }
 
+.flex {
+  display: flex;
+}
+
 
 .order-2 {
   order: 2;
@@ -374,9 +381,6 @@ body {
   list-style: none;
 }
 
-
-
-
 /* Định nghĩa cho các breakpoint */
 @media (min-width: 576px) {
   .container {
@@ -386,6 +390,10 @@ body {
 
 
 @media (min-width: 768px) and (max-width: 991px) {
+  .container {
+    max-width: 720px;
+  }
+
   .order-md-1 {
     order: 1;
   }
@@ -421,6 +429,9 @@ body {
 
 
 @media (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
 
   .col-lg-10 {
     flex: 0 0 auto;
@@ -512,4 +523,107 @@ body {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
+}
+
+
+/* Flex Slider */
+.flexslider {
+  border: 0 !important;
+}
+
+.flex-control-nav {
+  bottom: 10px !important;
+}
+
+.slider-details-container {
+  color: #fff;
+  top: 50%;
+  transform: translateY(-50%);
+  position: absolute;
+  width: 800px;
+}
+
+.slider-details-container h1 {
+  font-family: 'Seaweed Script';
+  font-size: 3.7 rem;
+}
+
+.slider-details-container .subtitle {
+  font-size: 1.3 em;
+  margin-bottom: 15px;
+}
+
+.slider-details-container .slider-title {
+  color: #fff;
+  font-weight: 700;
+}
+
+.slider-details-container a {
+  background-color: #d2335b;
+  color: #fff;
+  border-radius: 5px;
+  text-transform: uppercase;
+  padding: 0.8em;
+  display: inline-block;
+  font-size: 1.2 em;
+}
+
+.slider-details-container a:hover {
+  color: #fff;
+}
+
+.flexslider .slides {
+  padding: 0 !important;
+}
+
+.flex-control-paging li a {
+  background: rgba(189, 189, 189, 0.5) !important;
+  height: 10px !important;
+  width: 15px !important;
+}
+
+.flex-control-paging li a.flex-active {
+  background: #d2335b !important;
+  width: 25px !important;
+}
+
+.flex-control-nav li {
+  margin: 0 2px !important;
+}
+
+@media all and (max-width: 767px) {
+  .slider-details-container {
+    margin: 0 25px;
+    max-width: 400px;
+  }
+
+  .slider-title h3 {
+    font-size: 2em;
+  }
+
+  .slider-details-container .subtitle {
+    font-size: 1em;
+  }
+
+  .slider-details-container a {
+    padding: 0.5em;
+  }
+
+}
+
+@media all and (max-width: 575px) {
+  .slider-details-container {
+    max-width: 300px;
+  }
+
+  .slider-details-container a {
+    padding: 0.7em;
+    font-size: 1em;
+  }
+
+  .flexslider img {
+    height: 500px !important;
+    object-fit: cover;
+    object-position: center;
+  }
 }
