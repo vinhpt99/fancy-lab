@@ -7,6 +7,9 @@ function fancy_lab_scripts()
   // Theme main style
   wp_enqueue_style('fancy-lab-style', get_stylesheet_uri(), array(), filemtime(get_template_directory() . '/style.css'), 'all');
 
+  // Google Fonts
+  wp_enqueue_style('google-fonts', 'https://fonts.googleapis.com/css?family=Rajdhani:400;500;600;700|Seaweed+Script');
+
   wp_enqueue_script('flexslider-min-js', get_template_directory_uri() . '/inc/flexslider/jquery.flexslider-min.js', array('jquery'), '', true);
   wp_enqueue_style('flexslider-css', get_template_directory_uri() . '/inc/flexslider/flexslider.css', array(), '', 'all');
   wp_enqueue_script('flexslider-js', get_template_directory_uri() . '/inc/flexslider/flexslider.js', array('jquery'), '', true);
@@ -43,11 +46,15 @@ function fancy_lab_config()
     'flex-width' => true,
   ));
 
+  add_theme_support('post-thumbnails');
   add_image_size('fancy-lab-slider', 1920, 800, array('center', 'center'));
+  add_image_size('fancy-lab-blog', 960, 640, array('center', 'center'));
 
   if (! isset($content_width)) {
     $content_width = 600;
   }
+
+  add_theme_support('title-tag');
 }
 add_action('after_setup_theme', 'fancy_lab_config', 0);
 
@@ -68,3 +75,18 @@ function fancy_lab_woocommerce_header_add_to_cart_fragment($fragments)
   return $fragments;
 }
 add_filter('woocommerce_add_to_cart_fragments', 'fancy_lab_woocommerce_header_add_to_cart_fragment');
+
+add_action('widgets_init', 'fancy_lab_sidebars');
+
+function fancy_lab_sidebars()
+{
+  register_sidebar(array(
+    'name' => 'Fancy Lab Main Sidebar',
+    'id' => 'fancy-lab-sidebar-1',
+    'description' => 'Drag and drop your widgets here',
+    'before_widget' => '<div id="%1$s" class="widget %2$s widget-wrapper">',
+    'after_widget' => '</div>',
+    'before_title' => '<h4 class="widget-title">',
+    'after_title' => '</h4>',
+  ));
+}

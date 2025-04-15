@@ -11,21 +11,12 @@ get_header();
 <div class="content-area">
   <main>
     <div class="container">
-      <div class="row">
+      <div class="flex flex-wrap -mx-4">
         <?php
-        if (have_posts()) {
-          while (have_posts()): the_post(); ?>
-            <article class="col">
-              <h1><?php the_title(); ?></h1>
-              <div><?php the_content(); ?></div>
-            </article>
-          <?php
-          endwhile;
-        } else {
-          ?>
-          <p>Nothing to display.</p>
+        while (have_posts()): the_post(); ?>
+          <?php get_template_part('template-parts/content', 'page'); ?>
         <?php
-        }
+        endwhile;
         ?>
       </div>
     </div>

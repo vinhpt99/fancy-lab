@@ -92,9 +92,9 @@ get_header(); ?>
           <h2>Deal of the Week</h2>
           <div class="flex items-center flex-wrap -mx-4">
             <div class="deal-img w-full md:w-1/2 text-center ml-auto">
-              <?php echo get_the_post_thumbnail($deal, 'large', array('class' => 'img-fluid')); ?>
+              <?php echo get_the_post_thumbnail($deal, 'large', array('class' => 'w-full h-auto')); ?>
             </div>
-            <div class="deal-desc col-md-4 col-12 text-center mr-auto">
+            <div class="deal-desc w-full md:w-1/3 text-center mr-auto">
               <?php if (!empty($sale)): ?>
                 <span class="discount">
                   <?php echo $discount_percentage; ?>% OFF
@@ -128,19 +128,37 @@ get_header(); ?>
     <?php endif; ?>
     <section class="lab-blog">
       <div class="container">
-        <div class="row">
+        <div class="section-title">
+          <h2><?php echo get_theme_mod('set_blog_title', 'News From Our Blog'); ?></h2>
+        </div>
+        <div class="flex flex-wrap -mx-4">
           <?php
-          if (have_posts()):
-            while (have_posts()): the_post();
+          $args = array(
+            'post_type' => 'post',
+            'posts_per_page' => 2,
+          );
+          $blog_posts = new WP_Query($args);
+          if ($blog_posts->have_posts()):
+            while ($blog_posts->have_posts()): $blog_posts->the_post();
           ?>
-              <article>
-                <h2><?php the_title(); ?></h2>
-                <div>
-                  <?php the_content(); ?>
+              <article class="w-full md:w-1/2">
+                <a href="<?php the_permalink(); ?>">
+                  <?php
+                  if (has_post_thumbnail()):
+                    the_post_thumbnail('fancy-lab-blog', array('class' => 'w-full h-auto'));
+                  endif;
+                  ?>
+                </a>
+                <h3>
+                  <a href="<?php the_permalink(); ?>"> <?php the_title(); ?></a>
+                </h3>
+                <div class="excerpt">
+                  <?php the_excerpt(); ?>
                 </div>
               </article>
           <?php
             endwhile;
+            wp_reset_postdata();
           else:
             echo '<p>No posts found</p>';
           endif;
